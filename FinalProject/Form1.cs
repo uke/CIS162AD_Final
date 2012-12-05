@@ -17,7 +17,7 @@ namespace FinalProject
             Activity
         }
 
-      //  Mode currentMode;
+        Mode currentMode;
 
         public Form1()
         {
@@ -27,12 +27,20 @@ namespace FinalProject
 
         }
 
-        private void SetControlVisibility()
+        private void SetControlsEnabled()
         {
+            if (currentMode == Mode.Activity)
+                return; // we don't want to enable stuff if we're in activity mode
+
             menuItemFileContinue.Enabled = buttonContinue.Enabled
                 = textBoxAccountName.Text.Trim().Length > 0
                 && textBoxAccountNumber.Text.Trim().Length > 0
                 && textBoxStartingBalance.Text.Trim().Length > 0;
+
+            menuItemFileClear.Enabled = buttonClear.Enabled
+               = textBoxAccountName.Text.Trim().Length > 0
+               || textBoxAccountNumber.Text.Trim().Length > 0
+                || textBoxStartingBalance.Text.Trim().Length > 0;
         }
 
         private void SetAccountInputReadOnly(bool ReadOnly)
@@ -56,7 +64,7 @@ namespace FinalProject
 
         private void menuItemFileExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to quit the Bank of Bartlett application? Nothing will be saved and you will be left penniless with only a smelly dog of dubious ancestry for a friend.", "Quit Bank of Bartlett?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to quit the Bank of Bartlett application?\nNothing will be saved and you will be left penniless with only a smelly dog (of dubious ancestry) for a friend.", "Quit Bank of Bartlett?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 Environment.Exit(0);
         }
 
@@ -69,6 +77,8 @@ namespace FinalProject
             menuItemFileContinue.Enabled = buttonContinue.Enabled = false;
             labelBeginningBalance.Text = "Available Balance";
             groupBoxAvailableBalance.Visible = true;
+
+            currentMode = Mode.Activity;
 
         }
 
@@ -86,6 +96,10 @@ namespace FinalProject
             labelBeginningBalance.Text = "Beginning Balance";
 
             groupBoxAvailableBalance.Visible = false;
+
+            currentMode = Mode.Details;
+
+            SetControlsEnabled();
  
         } 
         #endregion
@@ -107,32 +121,32 @@ namespace FinalProject
 
         private void textBoxAccountName_Leave(object sender, EventArgs e)
         {
-            SetControlVisibility();
+            SetControlsEnabled();
         }
 
         private void textBoxAccountNumber_Leave(object sender, EventArgs e)
         {
-            SetControlVisibility();
+            SetControlsEnabled();
         }
 
         private void textBoxStartingBalance_Leave(object sender, EventArgs e)
         {
-            SetControlVisibility();
+            SetControlsEnabled();
         } 
 
         private void textBoxStartingBalance_KeyUp(object sender, KeyEventArgs e)
         {
-            SetControlVisibility();
+            SetControlsEnabled();
         }
 
         private void textBoxAccountNumber_KeyUp(object sender, KeyEventArgs e)
         {
-            SetControlVisibility();
+            SetControlsEnabled();
         }
 
         private void textBoxAccountName_KeyUp(object sender, KeyEventArgs e)
         {
-            SetControlVisibility();
+            SetControlsEnabled();
         }
         #endregion
 
