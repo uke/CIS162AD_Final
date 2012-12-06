@@ -41,7 +41,7 @@
             this.labelAcctDetailsError = new System.Windows.Forms.Label();
             this.buttonContinue = new System.Windows.Forms.Button();
             this.textBoxBeginningBalance = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelBeginningBalance = new System.Windows.Forms.Label();
             this.textBoxAccountNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxAccountName = new System.Windows.Forms.TextBox();
@@ -120,7 +120,7 @@
             this.groupBoxAccountDetails.Controls.Add(this.labelAcctDetailsError);
             this.groupBoxAccountDetails.Controls.Add(this.buttonContinue);
             this.groupBoxAccountDetails.Controls.Add(this.textBoxBeginningBalance);
-            this.groupBoxAccountDetails.Controls.Add(this.label5);
+            this.groupBoxAccountDetails.Controls.Add(this.labelBeginningBalance);
             this.groupBoxAccountDetails.Controls.Add(this.textBoxAccountNumber);
             this.groupBoxAccountDetails.Controls.Add(this.label4);
             this.groupBoxAccountDetails.Controls.Add(this.textBoxAccountName);
@@ -172,14 +172,14 @@
             this.textBoxBeginningBalance.TabIndex = 2;
             this.textBoxBeginningBalance.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AccountDetailsTextBoxes_KeyUp);
             // 
-            // label5
+            // labelBeginningBalance
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 127);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Beginning Balance";
+            this.labelBeginningBalance.AutoSize = true;
+            this.labelBeginningBalance.Location = new System.Drawing.Point(7, 127);
+            this.labelBeginningBalance.Name = "labelBeginningBalance";
+            this.labelBeginningBalance.Size = new System.Drawing.Size(96, 13);
+            this.labelBeginningBalance.TabIndex = 0;
+            this.labelBeginningBalance.Text = "Beginning Balance";
             // 
             // textBoxAccountNumber
             // 
@@ -356,7 +356,7 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonContinue;
         private System.Windows.Forms.TextBox textBoxBeginningBalance;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelBeginningBalance;
         private System.Windows.Forms.TextBox textBoxAccountNumber;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxAccountName;

@@ -21,6 +21,7 @@ namespace FinalProject
             SetContinueButtonEnabled();
             SetClearInputLabelVisible();
             labelAcctDetailsError.Visible = false;
+            labelActivityError.Text = "";
         }
 
         private bool TryParseAndValidate(string Input, out decimal Number, out string ErrorMessage)
@@ -28,7 +29,13 @@ namespace FinalProject
             Number = 0;
             ErrorMessage = null;
 
-            if (!decimal.TryParse(Input, out Number))
+            if (Input.Trim().Length == 0)
+            {
+                Number = 0;
+                return true;
+            }
+            
+            if (!decimal.TryParse(Input.Trim(), out Number))
             {
                 ErrorMessage = string.Format("Not a valid number: '{0}'", Input);
                 return false;
@@ -141,6 +148,7 @@ namespace FinalProject
             }
 
             UpdateAvailableBalanceLabel(newBalance);
+            textBoxBeginningBalance.Text = newBalance.ToString();
 
             ClearWithDrawDepositControls();
         }
@@ -161,8 +169,11 @@ namespace FinalProject
             groupBoxAccountDetails.Enabled = false;
 
             SetAccoundDetailsTextBoxesReadOnly(true);
+            linkLabelClearInputFields.Visible = false;
 
             labelAvailableBalance.Visible = true;
+
+            labelBeginningBalance.Text = "Available Balance";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -170,7 +181,10 @@ namespace FinalProject
             groupBoxActivity.Enabled = false;
             groupBoxAccountDetails.Enabled = true;
             SetAccoundDetailsTextBoxesReadOnly(false);
+            SetClearInputLabelVisible();
             textBoxBeginningBalance.Text = register.Balance.ToString(); // update oour beginning balance
+
+            labelBeginningBalance.Text = "Beginning Balance";
         }
 
         private void AccountDetailsTextBoxes_KeyUp(object sender, KeyEventArgs e)

@@ -53,16 +53,24 @@ namespace FinalProject.classes
             }
 
             // CASE 3: net effect is zero, don't do anything
-            if (netAmount == 0) // I know, redundant test, left it in for clarity
+            if (netAmount == 0) 
             {
                 NewBalance = balance;
                 return true;
             }
 
             // CASE 4: balance changed, remains positive
-            balance += netAmount;
-            return true;
+            if (balance + netAmount >= 0)
+            {
+                balance += netAmount;
+                NewBalance = balance;
+                return true;
+            }
 
+            // CASE 5: outcome will be negative balance if we allowed it, but we won't
+            ErrorMessage = "This isn't a freaking casino.  Insufficient funds";
+            NewBalance = balance;
+            return false;
         }
 
         public bool TryWithdraw(decimal Amount, out decimal NewBalance, out string ErrorMessage)
