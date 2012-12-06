@@ -110,9 +110,9 @@
             this.label2.ForeColor = System.Drawing.Color.MediumBlue;
             this.label2.Location = new System.Drawing.Point(338, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(117, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "MEID ROBxxxxxx";
+            this.label2.Text = "MEID ROB2081807";
             // 
             // groupBoxAccountDetails
             // 
