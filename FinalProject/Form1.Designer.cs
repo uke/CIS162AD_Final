@@ -116,7 +116,6 @@
             // groupBoxAccountDetails
             // 
             this.groupBoxAccountDetails.Controls.Add(this.labelAcctDetailsError);
-            this.groupBoxAccountDetails.Controls.Add(this.buttonClear);
             this.groupBoxAccountDetails.Controls.Add(this.buttonContinue);
             this.groupBoxAccountDetails.Controls.Add(this.textBoxBeginningBalance);
             this.groupBoxAccountDetails.Controls.Add(this.label5);
@@ -127,7 +126,7 @@
             this.groupBoxAccountDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxAccountDetails.Location = new System.Drawing.Point(13, 22);
             this.groupBoxAccountDetails.Name = "groupBoxAccountDetails";
-            this.groupBoxAccountDetails.Size = new System.Drawing.Size(429, 194);
+            this.groupBoxAccountDetails.Size = new System.Drawing.Size(456, 194);
             this.groupBoxAccountDetails.TabIndex = 2;
             this.groupBoxAccountDetails.TabStop = false;
             this.groupBoxAccountDetails.Text = "Account Details";
@@ -144,9 +143,11 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(290, 122);
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.ForeColor = System.Drawing.Color.Red;
+            this.buttonClear.Location = new System.Drawing.Point(372, 73);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(115, 23);
+            this.buttonClear.Size = new System.Drawing.Size(79, 70);
             this.buttonClear.TabIndex = 7;
             this.buttonClear.TabStop = false;
             this.buttonClear.Text = "Clear";
@@ -214,6 +215,7 @@
             // groupBoxActivity
             // 
             this.groupBoxActivity.Controls.Add(this.label1ActivityError);
+            this.groupBoxActivity.Controls.Add(this.buttonClear);
             this.groupBoxActivity.Controls.Add(this.buttonApply);
             this.groupBoxActivity.Controls.Add(this.textBoxWithdrawlAmount);
             this.groupBoxActivity.Controls.Add(this.textBoxDepositAmount);
@@ -221,9 +223,10 @@
             this.groupBoxActivity.Controls.Add(this.label9);
             this.groupBoxActivity.Controls.Add(this.labelAvailableBalance);
             this.groupBoxActivity.Controls.Add(this.label7);
+            this.groupBoxActivity.Enabled = false;
             this.groupBoxActivity.Location = new System.Drawing.Point(12, 222);
             this.groupBoxActivity.Name = "groupBoxActivity";
-            this.groupBoxActivity.Size = new System.Drawing.Size(430, 156);
+            this.groupBoxActivity.Size = new System.Drawing.Size(457, 156);
             this.groupBoxActivity.TabIndex = 3;
             this.groupBoxActivity.TabStop = false;
             this.groupBoxActivity.Text = "Activity";
@@ -240,7 +243,9 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(291, 73);
+            this.buttonApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApply.ForeColor = System.Drawing.Color.Green;
+            this.buttonApply.Location = new System.Drawing.Point(281, 73);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(75, 70);
             this.buttonApply.TabIndex = 6;
@@ -303,7 +308,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 396);
+            this.ClientSize = new System.Drawing.Size(481, 396);
             this.Controls.Add(this.groupBoxActivity);
             this.Controls.Add(this.groupBoxAccountDetails);
             this.Controls.Add(this.label2);

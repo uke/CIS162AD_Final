@@ -18,6 +18,28 @@ namespace FinalProject
         public Form1()
         {
             InitializeComponent();
+            SetContinueButtonEnabled();
+        }
+
+        private void SetContinueButtonEnabled()
+        {
+            buttonContinue.Enabled = (textBoxBeginningBalance.Text.Length > 0
+                && textBoxAccountName.Text.Length > 0
+                && textBoxAccountNumber.Text.Length > 0) ;
+            
+        }
+
+        private void SetAccoundDetailsTextBoxesReadOnly(bool ReadOnly)
+        {
+            textBoxAccountName.ReadOnly = ReadOnly;
+            textBoxAccountNumber.ReadOnly = ReadOnly;
+            textBoxBeginningBalance.ReadOnly = ReadOnly;
+        }
+
+        private void ClearWithDrawDepositControls()
+        {
+            textBoxDepositAmount.Text = "";
+            textBoxWithdrawlAmount.Text = "";
         }
 
         #region Event handlers
@@ -41,6 +63,12 @@ namespace FinalProject
         private void buttonApply_Click(object sender, EventArgs e)
         {
 
+            if (textBoxDepositAmount.Text.Length > 0)
+                textBoxDepositAmount.Focus();
+            else
+                textBoxWithdrawlAmount.Focus();
+
+            ClearWithDrawDepositControls();
         } 
      
 
@@ -50,11 +78,20 @@ namespace FinalProject
             {
                 Balance = startingBalance
             };
+
+            groupBoxActivity.Enabled = true;
+            groupBoxAccountDetails.Enabled = false;
+           // buttonContinue.Enabled = false;
+            SetAccoundDetailsTextBoxesReadOnly(true);
+
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-
+            groupBoxActivity.Enabled = false;
+            groupBoxAccountDetails.Enabled = true;
+            SetAccoundDetailsTextBoxesReadOnly(false);
+            //buttonContinue.Enabled = true;
         }
 
         #endregion
