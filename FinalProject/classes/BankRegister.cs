@@ -15,6 +15,11 @@ namespace FinalProject.classes
             {
                 return balance;
             }
+
+            set
+            {
+                balance = value;
+            }
         }
 
         public decimal Deposit(decimal Amount)
@@ -23,16 +28,19 @@ namespace FinalProject.classes
             return balance;
         }
 
-        public bool TryWithdraw(decimal Amount, out string ErrorMessage)
+        public bool TryWithdraw(decimal Amount, out decimal NewBalance,  out string ErrorMessage)
         {
             ErrorMessage = "";
+            NewBalance = balance;
+
             if (balance - Amount >= 0)
             {
-                balance -= Amount;
+                NewBalance = balance -= Amount;
                 return true;
             }
 
             ErrorMessage = "Insuficient Funds";
+            
             return false;
         }
     }

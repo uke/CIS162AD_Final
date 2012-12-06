@@ -13,6 +13,7 @@ namespace FinalProject
     public partial class Form1 : Form
     {
         BankRegister register = new BankRegister();
+        decimal startingBalance;
 
         public Form1()
         {
@@ -41,6 +42,21 @@ namespace FinalProject
         {
 
         } 
+     
+
+        private void buttonContinue_Click(object sender, EventArgs e)
+        {
+            register = new BankRegister
+            {
+                Balance = startingBalance
+            };
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
     }
 }

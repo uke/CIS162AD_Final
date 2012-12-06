@@ -31,30 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemFile = new System.Windows.Forms.MenuItem();
+            this.menuItemFile_Exit = new System.Windows.Forms.MenuItem();
             this.menuItemHelp = new System.Windows.Forms.MenuItem();
             this.menuItemAbout = new System.Windows.Forms.MenuItem();
-            this.menuItemFile_Exit = new System.Windows.Forms.MenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxAccountDetails = new System.Windows.Forms.GroupBox();
-            this.groupBoxActivity = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxAccountName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxAccountNumber = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxBeginningBalance = new System.Windows.Forms.TextBox();
-            this.buttonContinue = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
             this.labelAcctDetailsError = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelAvailableBalance = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonContinue = new System.Windows.Forms.Button();
+            this.textBoxBeginningBalance = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxAccountNumber = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxAccountName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBoxActivity = new System.Windows.Forms.GroupBox();
+            this.label1ActivityError = new System.Windows.Forms.Label();
+            this.buttonApply = new System.Windows.Forms.Button();
+            this.textBoxWithdrawlAmount = new System.Windows.Forms.TextBox();
             this.textBoxDepositAmount = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxWithdrawlAmount = new System.Windows.Forms.TextBox();
-            this.buttonApply = new System.Windows.Forms.Button();
-            this.label1ActivityError = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelAvailableBalance = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBoxAccountDetails.SuspendLayout();
             this.groupBoxActivity.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,12 @@
             this.menuItemFile_Exit});
             this.menuItemFile.Text = "&File";
             // 
+            // menuItemFile_Exit
+            // 
+            this.menuItemFile_Exit.Index = 0;
+            this.menuItemFile_Exit.Text = "E&xit";
+            this.menuItemFile_Exit.Click += new System.EventHandler(this.menuItemFile_Exit_Click);
+            // 
             // menuItemHelp
             // 
             this.menuItemHelp.Index = 1;
@@ -85,12 +91,6 @@
             this.menuItemAbout.Index = 2;
             this.menuItemAbout.Text = "&About";
             this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
-            // 
-            // menuItemFile_Exit
-            // 
-            this.menuItemFile_Exit.Index = 0;
-            this.menuItemFile_Exit.Text = "E&xit";
-            this.menuItemFile_Exit.Click += new System.EventHandler(this.menuItemFile_Exit_Click);
             // 
             // label1
             // 
@@ -124,12 +124,92 @@
             this.groupBoxAccountDetails.Controls.Add(this.label4);
             this.groupBoxAccountDetails.Controls.Add(this.textBoxAccountName);
             this.groupBoxAccountDetails.Controls.Add(this.label3);
+            this.groupBoxAccountDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxAccountDetails.Location = new System.Drawing.Point(13, 22);
             this.groupBoxAccountDetails.Name = "groupBoxAccountDetails";
             this.groupBoxAccountDetails.Size = new System.Drawing.Size(429, 194);
             this.groupBoxAccountDetails.TabIndex = 2;
             this.groupBoxAccountDetails.TabStop = false;
             this.groupBoxAccountDetails.Text = "Account Details";
+            // 
+            // labelAcctDetailsError
+            // 
+            this.labelAcctDetailsError.AutoSize = true;
+            this.labelAcctDetailsError.ForeColor = System.Drawing.Color.Red;
+            this.labelAcctDetailsError.Location = new System.Drawing.Point(116, 156);
+            this.labelAcctDetailsError.Name = "labelAcctDetailsError";
+            this.labelAcctDetailsError.Size = new System.Drawing.Size(117, 13);
+            this.labelAcctDetailsError.TabIndex = 4;
+            this.labelAcctDetailsError.Text = "this is an error message";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(290, 122);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(115, 23);
+            this.buttonClear.TabIndex = 7;
+            this.buttonClear.TabStop = false;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonContinue
+            // 
+            this.buttonContinue.Location = new System.Drawing.Point(290, 30);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(115, 71);
+            this.buttonContinue.TabIndex = 3;
+            this.buttonContinue.Text = "Continue";
+            this.buttonContinue.UseVisualStyleBackColor = true;
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
+            // 
+            // textBoxBeginningBalance
+            // 
+            this.textBoxBeginningBalance.Location = new System.Drawing.Point(116, 120);
+            this.textBoxBeginningBalance.Name = "textBoxBeginningBalance";
+            this.textBoxBeginningBalance.Size = new System.Drawing.Size(155, 20);
+            this.textBoxBeginningBalance.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Beginning Balance";
+            // 
+            // textBoxAccountNumber
+            // 
+            this.textBoxAccountNumber.Location = new System.Drawing.Point(116, 76);
+            this.textBoxAccountNumber.Name = "textBoxAccountNumber";
+            this.textBoxAccountNumber.Size = new System.Drawing.Size(155, 20);
+            this.textBoxAccountNumber.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Account Number";
+            // 
+            // textBoxAccountName
+            // 
+            this.textBoxAccountName.Location = new System.Drawing.Point(116, 30);
+            this.textBoxAccountName.Name = "textBoxAccountName";
+            this.textBoxAccountName.Size = new System.Drawing.Size(155, 20);
+            this.textBoxAccountName.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Account Name";
             // 
             // groupBoxActivity
             // 
@@ -148,109 +228,32 @@
             this.groupBoxActivity.TabStop = false;
             this.groupBoxActivity.Text = "Activity";
             // 
-            // label3
+            // label1ActivityError
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Account Name";
+            this.label1ActivityError.AutoSize = true;
+            this.label1ActivityError.ForeColor = System.Drawing.Color.Red;
+            this.label1ActivityError.Location = new System.Drawing.Point(17, 130);
+            this.label1ActivityError.Name = "label1ActivityError";
+            this.label1ActivityError.Size = new System.Drawing.Size(117, 13);
+            this.label1ActivityError.TabIndex = 4;
+            this.label1ActivityError.Text = "this is an error message";
             // 
-            // textBoxAccountName
+            // buttonApply
             // 
-            this.textBoxAccountName.Location = new System.Drawing.Point(116, 30);
-            this.textBoxAccountName.Name = "textBoxAccountName";
-            this.textBoxAccountName.Size = new System.Drawing.Size(155, 20);
-            this.textBoxAccountName.TabIndex = 0;
+            this.buttonApply.Location = new System.Drawing.Point(291, 73);
+            this.buttonApply.Name = "buttonApply";
+            this.buttonApply.Size = new System.Drawing.Size(75, 70);
+            this.buttonApply.TabIndex = 6;
+            this.buttonApply.Text = "Apply";
+            this.buttonApply.UseVisualStyleBackColor = true;
+            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
-            // label4
+            // textBoxWithdrawlAmount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Account Number";
-            // 
-            // textBoxAccountNumber
-            // 
-            this.textBoxAccountNumber.Location = new System.Drawing.Point(116, 76);
-            this.textBoxAccountNumber.Name = "textBoxAccountNumber";
-            this.textBoxAccountNumber.Size = new System.Drawing.Size(155, 20);
-            this.textBoxAccountNumber.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 127);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Beginning Balance";
-            // 
-            // textBoxBeginningBalance
-            // 
-            this.textBoxBeginningBalance.Location = new System.Drawing.Point(116, 120);
-            this.textBoxBeginningBalance.Name = "textBoxBeginningBalance";
-            this.textBoxBeginningBalance.Size = new System.Drawing.Size(155, 20);
-            this.textBoxBeginningBalance.TabIndex = 2;
-            // 
-            // buttonContinue
-            // 
-            this.buttonContinue.Location = new System.Drawing.Point(290, 30);
-            this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(115, 71);
-            this.buttonContinue.TabIndex = 3;
-            this.buttonContinue.Text = "Continue";
-            this.buttonContinue.UseVisualStyleBackColor = true;
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Location = new System.Drawing.Point(290, 122);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(115, 23);
-            this.buttonClear.TabIndex = 3;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            // 
-            // labelAcctDetailsError
-            // 
-            this.labelAcctDetailsError.AutoSize = true;
-            this.labelAcctDetailsError.ForeColor = System.Drawing.Color.Red;
-            this.labelAcctDetailsError.Location = new System.Drawing.Point(116, 156);
-            this.labelAcctDetailsError.Name = "labelAcctDetailsError";
-            this.labelAcctDetailsError.Size = new System.Drawing.Size(117, 13);
-            this.labelAcctDetailsError.TabIndex = 4;
-            this.labelAcctDetailsError.Text = "this is an error message";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Available Balance";
-            // 
-            // labelAvailableBalance
-            // 
-            this.labelAvailableBalance.AutoSize = true;
-            this.labelAvailableBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAvailableBalance.Location = new System.Drawing.Point(147, 20);
-            this.labelAvailableBalance.Name = "labelAvailableBalance";
-            this.labelAvailableBalance.Size = new System.Drawing.Size(137, 25);
-            this.labelAvailableBalance.TabIndex = 1;
-            this.labelAvailableBalance.Text = "$1,234,567,89";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 73);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Deposit Amount";
+            this.textBoxWithdrawlAmount.Location = new System.Drawing.Point(152, 90);
+            this.textBoxWithdrawlAmount.Name = "textBoxWithdrawlAmount";
+            this.textBoxWithdrawlAmount.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWithdrawlAmount.TabIndex = 5;
             // 
             // textBoxDepositAmount
             // 
@@ -268,32 +271,33 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Withdrawl Amount";
             // 
-            // textBoxWithdrawlAmount
+            // label9
             // 
-            this.textBoxWithdrawlAmount.Location = new System.Drawing.Point(152, 90);
-            this.textBoxWithdrawlAmount.Name = "textBoxWithdrawlAmount";
-            this.textBoxWithdrawlAmount.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWithdrawlAmount.TabIndex = 5;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 73);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Deposit Amount";
             // 
-            // buttonApply
+            // labelAvailableBalance
             // 
-            this.buttonApply.Location = new System.Drawing.Point(291, 73);
-            this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(75, 70);
-            this.buttonApply.TabIndex = 6;
-            this.buttonApply.Text = "Apply";
-            this.buttonApply.UseVisualStyleBackColor = true;
-            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
+            this.labelAvailableBalance.AutoSize = true;
+            this.labelAvailableBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAvailableBalance.Location = new System.Drawing.Point(147, 20);
+            this.labelAvailableBalance.Name = "labelAvailableBalance";
+            this.labelAvailableBalance.Size = new System.Drawing.Size(137, 25);
+            this.labelAvailableBalance.TabIndex = 1;
+            this.labelAvailableBalance.Text = "$1,234,567,89";
             // 
-            // label1ActivityError
+            // label7
             // 
-            this.label1ActivityError.AutoSize = true;
-            this.label1ActivityError.ForeColor = System.Drawing.Color.Red;
-            this.label1ActivityError.Location = new System.Drawing.Point(17, 130);
-            this.label1ActivityError.Name = "label1ActivityError";
-            this.label1ActivityError.Size = new System.Drawing.Size(117, 13);
-            this.label1ActivityError.TabIndex = 4;
-            this.label1ActivityError.Text = "this is an error message";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(38, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Available Balance";
             // 
             // Form1
             // 
