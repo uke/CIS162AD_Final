@@ -26,7 +26,9 @@ namespace FinalProject
             buttonContinue.Enabled = (textBoxBeginningBalance.Text.Length > 0
                 && textBoxAccountName.Text.Length > 0
                 && textBoxAccountNumber.Text.Length > 0) ;
-            
+
+            if (!buttonContinue.Enabled)
+                labelAvailableBalance.Visible = false;
         }
 
         private void SetAccoundDetailsTextBoxesReadOnly(bool ReadOnly)
@@ -81,9 +83,10 @@ namespace FinalProject
 
             groupBoxActivity.Enabled = true;
             groupBoxAccountDetails.Enabled = false;
-           // buttonContinue.Enabled = false;
+    
             SetAccoundDetailsTextBoxesReadOnly(true);
 
+            labelAvailableBalance.Visible = true;
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -95,5 +98,10 @@ namespace FinalProject
         }
 
         #endregion
+
+        private void AccountDetailsTextBoxes_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetContinueButtonEnabled();
+        }
     }
 }

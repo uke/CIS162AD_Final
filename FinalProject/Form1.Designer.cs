@@ -170,6 +170,7 @@
             this.textBoxBeginningBalance.Name = "textBoxBeginningBalance";
             this.textBoxBeginningBalance.Size = new System.Drawing.Size(155, 20);
             this.textBoxBeginningBalance.TabIndex = 2;
+            this.textBoxBeginningBalance.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AccountDetailsTextBoxes_KeyUp);
             // 
             // label5
             // 
@@ -186,6 +187,7 @@
             this.textBoxAccountNumber.Name = "textBoxAccountNumber";
             this.textBoxAccountNumber.Size = new System.Drawing.Size(155, 20);
             this.textBoxAccountNumber.TabIndex = 1;
+            this.textBoxAccountNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AccountDetailsTextBoxes_KeyUp);
             // 
             // label4
             // 
@@ -202,6 +204,7 @@
             this.textBoxAccountName.Name = "textBoxAccountName";
             this.textBoxAccountName.Size = new System.Drawing.Size(155, 20);
             this.textBoxAccountName.TabIndex = 0;
+            this.textBoxAccountName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AccountDetailsTextBoxes_KeyUp);
             // 
             // label3
             // 
