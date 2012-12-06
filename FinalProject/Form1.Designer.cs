@@ -37,8 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxAccountDetails = new System.Windows.Forms.GroupBox();
+            this.linkLabelClearInputFields = new System.Windows.Forms.LinkLabel();
             this.labelAcctDetailsError = new System.Windows.Forms.Label();
-            this.buttonClear = new System.Windows.Forms.Button();
             this.buttonContinue = new System.Windows.Forms.Button();
             this.textBoxBeginningBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,8 +46,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxAccountName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.groupBoxActivity = new System.Windows.Forms.GroupBox();
-            this.label1ActivityError = new System.Windows.Forms.Label();
+            this.labelActivityError = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
             this.textBoxWithdrawlAmount = new System.Windows.Forms.TextBox();
             this.textBoxDepositAmount = new System.Windows.Forms.TextBox();
@@ -115,6 +116,7 @@
             // 
             // groupBoxAccountDetails
             // 
+            this.groupBoxAccountDetails.Controls.Add(this.linkLabelClearInputFields);
             this.groupBoxAccountDetails.Controls.Add(this.labelAcctDetailsError);
             this.groupBoxAccountDetails.Controls.Add(this.buttonContinue);
             this.groupBoxAccountDetails.Controls.Add(this.textBoxBeginningBalance);
@@ -131,28 +133,26 @@
             this.groupBoxAccountDetails.TabStop = false;
             this.groupBoxAccountDetails.Text = "Account Details";
             // 
+            // linkLabelClearInputFields
+            // 
+            this.linkLabelClearInputFields.AutoSize = true;
+            this.linkLabelClearInputFields.Location = new System.Drawing.Point(113, 159);
+            this.linkLabelClearInputFields.Name = "linkLabelClearInputFields";
+            this.linkLabelClearInputFields.Size = new System.Drawing.Size(56, 13);
+            this.linkLabelClearInputFields.TabIndex = 5;
+            this.linkLabelClearInputFields.TabStop = true;
+            this.linkLabelClearInputFields.Text = "clear input";
+            this.linkLabelClearInputFields.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClearInputFields_LinkClicked);
+            // 
             // labelAcctDetailsError
             // 
             this.labelAcctDetailsError.AutoSize = true;
             this.labelAcctDetailsError.ForeColor = System.Drawing.Color.Red;
-            this.labelAcctDetailsError.Location = new System.Drawing.Point(116, 156);
+            this.labelAcctDetailsError.Location = new System.Drawing.Point(191, 159);
             this.labelAcctDetailsError.Name = "labelAcctDetailsError";
             this.labelAcctDetailsError.Size = new System.Drawing.Size(117, 13);
             this.labelAcctDetailsError.TabIndex = 4;
             this.labelAcctDetailsError.Text = "this is an error message";
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.ForeColor = System.Drawing.Color.Red;
-            this.buttonClear.Location = new System.Drawing.Point(372, 73);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(79, 70);
-            this.buttonClear.TabIndex = 7;
-            this.buttonClear.TabStop = false;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // buttonContinue
             // 
@@ -215,9 +215,22 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Account Name";
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.ForeColor = System.Drawing.Color.Red;
+            this.buttonClear.Location = new System.Drawing.Point(372, 73);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(79, 70);
+            this.buttonClear.TabIndex = 7;
+            this.buttonClear.TabStop = false;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // groupBoxActivity
             // 
-            this.groupBoxActivity.Controls.Add(this.label1ActivityError);
+            this.groupBoxActivity.Controls.Add(this.labelActivityError);
             this.groupBoxActivity.Controls.Add(this.buttonClear);
             this.groupBoxActivity.Controls.Add(this.buttonApply);
             this.groupBoxActivity.Controls.Add(this.textBoxWithdrawlAmount);
@@ -234,15 +247,15 @@
             this.groupBoxActivity.TabStop = false;
             this.groupBoxActivity.Text = "Activity";
             // 
-            // label1ActivityError
+            // labelActivityError
             // 
-            this.label1ActivityError.AutoSize = true;
-            this.label1ActivityError.ForeColor = System.Drawing.Color.Red;
-            this.label1ActivityError.Location = new System.Drawing.Point(17, 130);
-            this.label1ActivityError.Name = "label1ActivityError";
-            this.label1ActivityError.Size = new System.Drawing.Size(117, 13);
-            this.label1ActivityError.TabIndex = 4;
-            this.label1ActivityError.Text = "this is an error message";
+            this.labelActivityError.AutoSize = true;
+            this.labelActivityError.ForeColor = System.Drawing.Color.Red;
+            this.labelActivityError.Location = new System.Drawing.Point(17, 130);
+            this.labelActivityError.Name = "labelActivityError";
+            this.labelActivityError.Size = new System.Drawing.Size(117, 13);
+            this.labelActivityError.TabIndex = 4;
+            this.labelActivityError.Text = "this is an error message";
             // 
             // buttonApply
             // 
@@ -348,7 +361,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxAccountName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1ActivityError;
+        private System.Windows.Forms.Label labelActivityError;
         private System.Windows.Forms.Button buttonApply;
         private System.Windows.Forms.TextBox textBoxWithdrawlAmount;
         private System.Windows.Forms.TextBox textBoxDepositAmount;
@@ -356,6 +369,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelAvailableBalance;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel linkLabelClearInputFields;
 
     }
 }
