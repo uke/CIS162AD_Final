@@ -39,22 +39,22 @@
             this.groupBoxAccountDetails = new System.Windows.Forms.GroupBox();
             this.groupBoxActivity = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxAccountName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxAccountNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxBeginningBalance = new System.Windows.Forms.TextBox();
+            this.buttonContinue = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.labelAcctDetailsError = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelAvailableBalance = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxDepositAmount = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxWithdrawlAmount = new System.Windows.Forms.TextBox();
+            this.buttonApply = new System.Windows.Forms.Button();
+            this.label1ActivityError = new System.Windows.Forms.Label();
             this.groupBoxAccountDetails.SuspendLayout();
             this.groupBoxActivity.SuspendLayout();
             this.SuspendLayout();
@@ -78,16 +78,19 @@
             this.menuItemHelp.Index = 1;
             this.menuItemHelp.Shortcut = System.Windows.Forms.Shortcut.F1;
             this.menuItemHelp.Text = "&Help";
+            this.menuItemHelp.Click += new System.EventHandler(this.menuItemHelp_Click);
             // 
             // menuItemAbout
             // 
             this.menuItemAbout.Index = 2;
             this.menuItemAbout.Text = "&About";
+            this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 
             // menuItemFile_Exit
             // 
             this.menuItemFile_Exit.Index = 0;
             this.menuItemFile_Exit.Text = "E&xit";
+            this.menuItemFile_Exit.Click += new System.EventHandler(this.menuItemFile_Exit_Click);
             // 
             // label1
             // 
@@ -112,14 +115,14 @@
             // 
             // groupBoxAccountDetails
             // 
-            this.groupBoxAccountDetails.Controls.Add(this.label6);
-            this.groupBoxAccountDetails.Controls.Add(this.button2);
-            this.groupBoxAccountDetails.Controls.Add(this.button1);
-            this.groupBoxAccountDetails.Controls.Add(this.textBox3);
+            this.groupBoxAccountDetails.Controls.Add(this.labelAcctDetailsError);
+            this.groupBoxAccountDetails.Controls.Add(this.buttonClear);
+            this.groupBoxAccountDetails.Controls.Add(this.buttonContinue);
+            this.groupBoxAccountDetails.Controls.Add(this.textBoxBeginningBalance);
             this.groupBoxAccountDetails.Controls.Add(this.label5);
-            this.groupBoxAccountDetails.Controls.Add(this.textBox2);
+            this.groupBoxAccountDetails.Controls.Add(this.textBoxAccountNumber);
             this.groupBoxAccountDetails.Controls.Add(this.label4);
-            this.groupBoxAccountDetails.Controls.Add(this.textBox1);
+            this.groupBoxAccountDetails.Controls.Add(this.textBoxAccountName);
             this.groupBoxAccountDetails.Controls.Add(this.label3);
             this.groupBoxAccountDetails.Location = new System.Drawing.Point(13, 22);
             this.groupBoxAccountDetails.Name = "groupBoxAccountDetails";
@@ -130,13 +133,13 @@
             // 
             // groupBoxActivity
             // 
-            this.groupBoxActivity.Controls.Add(this.label11);
-            this.groupBoxActivity.Controls.Add(this.button3);
-            this.groupBoxActivity.Controls.Add(this.textBox5);
-            this.groupBoxActivity.Controls.Add(this.textBox4);
+            this.groupBoxActivity.Controls.Add(this.label1ActivityError);
+            this.groupBoxActivity.Controls.Add(this.buttonApply);
+            this.groupBoxActivity.Controls.Add(this.textBoxWithdrawlAmount);
+            this.groupBoxActivity.Controls.Add(this.textBoxDepositAmount);
             this.groupBoxActivity.Controls.Add(this.label10);
             this.groupBoxActivity.Controls.Add(this.label9);
-            this.groupBoxActivity.Controls.Add(this.label8);
+            this.groupBoxActivity.Controls.Add(this.labelAvailableBalance);
             this.groupBoxActivity.Controls.Add(this.label7);
             this.groupBoxActivity.Location = new System.Drawing.Point(12, 222);
             this.groupBoxActivity.Name = "groupBoxActivity";
@@ -154,12 +157,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Account Name";
             // 
-            // textBox1
+            // textBoxAccountName
             // 
-            this.textBox1.Location = new System.Drawing.Point(116, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxAccountName.Location = new System.Drawing.Point(116, 30);
+            this.textBoxAccountName.Name = "textBoxAccountName";
+            this.textBoxAccountName.Size = new System.Drawing.Size(155, 20);
+            this.textBoxAccountName.TabIndex = 0;
             // 
             // label4
             // 
@@ -170,12 +173,12 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Account Number";
             // 
-            // textBox2
+            // textBoxAccountNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(116, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBoxAccountNumber.Location = new System.Drawing.Point(116, 76);
+            this.textBoxAccountNumber.Name = "textBoxAccountNumber";
+            this.textBoxAccountNumber.Size = new System.Drawing.Size(155, 20);
+            this.textBoxAccountNumber.TabIndex = 1;
             // 
             // label5
             // 
@@ -186,40 +189,40 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Beginning Balance";
             // 
-            // textBox3
+            // textBoxBeginningBalance
             // 
-            this.textBox3.Location = new System.Drawing.Point(116, 120);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 20);
-            this.textBox3.TabIndex = 2;
+            this.textBoxBeginningBalance.Location = new System.Drawing.Point(116, 120);
+            this.textBoxBeginningBalance.Name = "textBoxBeginningBalance";
+            this.textBoxBeginningBalance.Size = new System.Drawing.Size(155, 20);
+            this.textBoxBeginningBalance.TabIndex = 2;
             // 
-            // button1
+            // buttonContinue
             // 
-            this.button1.Location = new System.Drawing.Point(290, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 71);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Continue";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonContinue.Location = new System.Drawing.Point(290, 30);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(115, 71);
+            this.buttonContinue.TabIndex = 3;
+            this.buttonContinue.Text = "Continue";
+            this.buttonContinue.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonClear
             // 
-            this.button2.Location = new System.Drawing.Point(290, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonClear.Location = new System.Drawing.Point(290, 122);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(115, 23);
+            this.buttonClear.TabIndex = 3;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // labelAcctDetailsError
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(116, 156);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "this is an error message";
+            this.labelAcctDetailsError.AutoSize = true;
+            this.labelAcctDetailsError.ForeColor = System.Drawing.Color.Red;
+            this.labelAcctDetailsError.Location = new System.Drawing.Point(116, 156);
+            this.labelAcctDetailsError.Name = "labelAcctDetailsError";
+            this.labelAcctDetailsError.Size = new System.Drawing.Size(117, 13);
+            this.labelAcctDetailsError.TabIndex = 4;
+            this.labelAcctDetailsError.Text = "this is an error message";
             // 
             // label7
             // 
@@ -230,15 +233,15 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Available Balance";
             // 
-            // label8
+            // labelAvailableBalance
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(147, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(137, 25);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "$1,234,567,89";
+            this.labelAvailableBalance.AutoSize = true;
+            this.labelAvailableBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAvailableBalance.Location = new System.Drawing.Point(147, 20);
+            this.labelAvailableBalance.Name = "labelAvailableBalance";
+            this.labelAvailableBalance.Size = new System.Drawing.Size(137, 25);
+            this.labelAvailableBalance.TabIndex = 1;
+            this.labelAvailableBalance.Text = "$1,234,567,89";
             // 
             // label9
             // 
@@ -249,12 +252,12 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Deposit Amount";
             // 
-            // textBox4
+            // textBoxDepositAmount
             // 
-            this.textBox4.Location = new System.Drawing.Point(18, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
+            this.textBoxDepositAmount.Location = new System.Drawing.Point(18, 90);
+            this.textBoxDepositAmount.Name = "textBoxDepositAmount";
+            this.textBoxDepositAmount.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDepositAmount.TabIndex = 4;
             // 
             // label10
             // 
@@ -265,31 +268,32 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Withdrawl Amount";
             // 
-            // textBox5
+            // textBoxWithdrawlAmount
             // 
-            this.textBox5.Location = new System.Drawing.Point(152, 90);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 5;
+            this.textBoxWithdrawlAmount.Location = new System.Drawing.Point(152, 90);
+            this.textBoxWithdrawlAmount.Name = "textBoxWithdrawlAmount";
+            this.textBoxWithdrawlAmount.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWithdrawlAmount.TabIndex = 5;
             // 
-            // button3
+            // buttonApply
             // 
-            this.button3.Location = new System.Drawing.Point(291, 73);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 70);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Apply";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonApply.Location = new System.Drawing.Point(291, 73);
+            this.buttonApply.Name = "buttonApply";
+            this.buttonApply.Size = new System.Drawing.Size(75, 70);
+            this.buttonApply.TabIndex = 6;
+            this.buttonApply.Text = "Apply";
+            this.buttonApply.UseVisualStyleBackColor = true;
+            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
-            // label11
+            // label1ActivityError
             // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(17, 130);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(117, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "this is an error message";
+            this.label1ActivityError.AutoSize = true;
+            this.label1ActivityError.ForeColor = System.Drawing.Color.Red;
+            this.label1ActivityError.Location = new System.Drawing.Point(17, 130);
+            this.label1ActivityError.Name = "label1ActivityError";
+            this.label1ActivityError.Size = new System.Drawing.Size(117, 13);
+            this.label1ActivityError.TabIndex = 4;
+            this.label1ActivityError.Text = "this is an error message";
             // 
             // Form1
             // 
@@ -323,22 +327,22 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBoxAccountDetails;
         private System.Windows.Forms.GroupBox groupBoxActivity;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label labelAcctDetailsError;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonContinue;
+        private System.Windows.Forms.TextBox textBoxBeginningBalance;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxAccountNumber;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxAccountName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label1ActivityError;
+        private System.Windows.Forms.Button buttonApply;
+        private System.Windows.Forms.TextBox textBoxWithdrawlAmount;
+        private System.Windows.Forms.TextBox textBoxDepositAmount;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelAvailableBalance;
         private System.Windows.Forms.Label label7;
 
     }
