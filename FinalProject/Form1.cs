@@ -42,7 +42,7 @@ namespace FinalProject
             string errMsg;
             decimal startingBalance = 0;
 
-            buttonContinue.Enabled = (textBoxBeginningBalance.Text.Trim().Length > 0 
+            buttonContinue.Enabled = (textBoxBeginningBalance.Text.Trim().Length > 0
                 && TryParseAndValidate(textBoxBeginningBalance.Text, out startingBalance, out errMsg)
                 && textBoxAccountName.Text.Trim().Length > 0
                 && textBoxAccountNumber.Text.Trim().Length > 0);
@@ -110,6 +110,7 @@ namespace FinalProject
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
+            labelActivityError.Text = "";
 
             if (textBoxDepositAmount.Text.Length > 0)
                 textBoxDepositAmount.Focus();
@@ -123,7 +124,23 @@ namespace FinalProject
             if (!TryParseAndValidate(textBoxDepositAmount.Text, out credit, out errMsg))
             {
                 labelActivityError.Text = errMsg;
+                return;
             }
+
+            if (!TryParseAndValidate(textBoxWithdrawlAmount.Text, out debit, out errMsg))
+            {
+                labelActivityError.Text = errMsg;
+                return;
+            }
+
+            decimal newBalance = 0;
+            if (!register.TryDebitCredit(credit, debit, out newBalance, out errMsg))
+            {
+                labelActivityError.Text = errMsg;
+                return;
+            }
+
+            UpdateAvailableBalanceLabel(newBalance);
 
             ClearWithDrawDepositControls();
         }
@@ -153,6 +170,7 @@ namespace FinalProject
             groupBoxActivity.Enabled = false;
             groupBoxAccountDetails.Enabled = true;
             SetAccoundDetailsTextBoxesReadOnly(false);
+            textBoxBeginningBalance.Text = register.Balance.ToString(); // update oour beginning balance
         }
 
         private void AccountDetailsTextBoxes_KeyUp(object sender, KeyEventArgs e)
