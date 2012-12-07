@@ -23,6 +23,7 @@ namespace FinalProject
             SetClearInputLabelVisible();
             labelAcctDetailsError.Visible = false;
             labelActivityError.Text = "";
+            labelAvailTitle.Visible = false;
             #endregion
         }
 
@@ -68,11 +69,11 @@ namespace FinalProject
                 && textBoxAccountNumber.Text.Trim().Length > 0);
 
             if (!buttonContinue.Enabled)
-                labelAvailableBalance.Visible = false;
+                labelAvailableBalance.Visible = labelAvailTitle.Visible = false;
             else
             {
                 UpdateAvailableBalanceLabel(startingBalance);
-                labelAvailableBalance.Visible = true;
+                labelAvailableBalance.Visible = labelAvailTitle.Visible = true;
             }
         }
         #endregion
@@ -107,7 +108,7 @@ namespace FinalProject
         private void ClearWithDrawDepositControls()
         {
             textBoxDepositAmount.Text = "";
-            textBoxWithdrawlAmount.Text = "";
+            textBoxWithdrawalAmount.Text = "";
         }
         #endregion
 
@@ -142,10 +143,10 @@ namespace FinalProject
             sb.Append("Number, and Starting Balance.\n\nWhen all information has been entered, ");
             sb.Append("hit the 'Continue' button to switch to the 'Activity' group box on the lower ");
             sb.Append("part of the form.");
-            sb.Append("\n\nEnter dollar amounts in the 'Deposit Amount' and/or 'Withdrawl Amount' textboxes, ");
+            sb.Append("\n\nEnter dollar amounts in the 'Deposit Amount' and/or 'Withdrawal Amount' textboxes, ");
             sb.Append("then hit the 'Apply' button to update the available balance. When you are no longer ");
             sb.Append("amused by this activity, hit the 'Clear' button to return to the top panel.");
-            sb.Append("\n\nNote that you can Apply Deposits and Withdrawls simultaneously.  The only restriction ");
+            sb.Append("\n\nNote that you can Apply Deposits and Withdrawals simultaneously.  The only restriction ");
             sb.Append("is that you cannot cause the balance to go negative, and you cannot increase a negative ");
             sb.Append("balance. Negative numbers are supported and dealt with arithmetically");
             MessageBox.Show(sb.ToString(), "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -163,7 +164,7 @@ namespace FinalProject
         #endregion
         #endregion
 
-        #region Apply Deposit or Withdrawl click
+        #region Apply Deposit or Withdrawal click
         private void buttonApply_Click(object sender, EventArgs e)
         {
             labelActivityError.Text = "";
@@ -171,7 +172,7 @@ namespace FinalProject
             if (textBoxDepositAmount.Text.Length > 0)
                 textBoxDepositAmount.Focus();
             else
-                textBoxWithdrawlAmount.Focus();
+                textBoxWithdrawalAmount.Focus();
 
             decimal credit = 0;
             decimal debit = 0;
@@ -183,7 +184,7 @@ namespace FinalProject
                 return;
             }
 
-            if (!TryParseAndValidate(textBoxWithdrawlAmount.Text, out debit, out errMsg))
+            if (!TryParseAndValidate(textBoxWithdrawalAmount.Text, out debit, out errMsg))
             {
                 labelActivityError.Text = errMsg;
                 return;
@@ -222,6 +223,7 @@ namespace FinalProject
             linkLabelClearInputFields.Visible = false;
 
             labelAvailableBalance.Visible = true;
+            labelAvailTitle.Visible = true;
 
             labelBeginningBalance.Text = "Available Balance";
         }

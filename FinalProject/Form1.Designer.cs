@@ -50,12 +50,12 @@
             this.groupBoxActivity = new System.Windows.Forms.GroupBox();
             this.labelActivityError = new System.Windows.Forms.Label();
             this.buttonApply = new System.Windows.Forms.Button();
-            this.textBoxWithdrawlAmount = new System.Windows.Forms.TextBox();
+            this.textBoxWithdrawalAmount = new System.Windows.Forms.TextBox();
             this.textBoxDepositAmount = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelAvailableBalance = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelAvailTitle = new System.Windows.Forms.Label();
             this.groupBoxAccountDetails.SuspendLayout();
             this.groupBoxActivity.SuspendLayout();
             this.SuspendLayout();
@@ -233,12 +233,12 @@
             this.groupBoxActivity.Controls.Add(this.labelActivityError);
             this.groupBoxActivity.Controls.Add(this.buttonClear);
             this.groupBoxActivity.Controls.Add(this.buttonApply);
-            this.groupBoxActivity.Controls.Add(this.textBoxWithdrawlAmount);
+            this.groupBoxActivity.Controls.Add(this.textBoxWithdrawalAmount);
             this.groupBoxActivity.Controls.Add(this.textBoxDepositAmount);
             this.groupBoxActivity.Controls.Add(this.label10);
             this.groupBoxActivity.Controls.Add(this.label9);
             this.groupBoxActivity.Controls.Add(this.labelAvailableBalance);
-            this.groupBoxActivity.Controls.Add(this.label7);
+            this.groupBoxActivity.Controls.Add(this.labelAvailTitle);
             this.groupBoxActivity.Enabled = false;
             this.groupBoxActivity.Location = new System.Drawing.Point(12, 222);
             this.groupBoxActivity.Name = "groupBoxActivity";
@@ -269,12 +269,12 @@
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
-            // textBoxWithdrawlAmount
+            // textBoxWithdrawalAmount
             // 
-            this.textBoxWithdrawlAmount.Location = new System.Drawing.Point(152, 90);
-            this.textBoxWithdrawlAmount.Name = "textBoxWithdrawlAmount";
-            this.textBoxWithdrawlAmount.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWithdrawlAmount.TabIndex = 5;
+            this.textBoxWithdrawalAmount.Location = new System.Drawing.Point(152, 90);
+            this.textBoxWithdrawalAmount.Name = "textBoxWithdrawalAmount";
+            this.textBoxWithdrawalAmount.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWithdrawalAmount.TabIndex = 5;
             // 
             // textBoxDepositAmount
             // 
@@ -288,9 +288,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(149, 73);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 13);
+            this.label10.Size = new System.Drawing.Size(99, 13);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Withdrawl Amount";
+            this.label10.Text = "Withdrawal Amount";
             // 
             // label9
             // 
@@ -311,14 +311,14 @@
             this.labelAvailableBalance.TabIndex = 1;
             this.labelAvailableBalance.Text = "$1,234,567,89";
             // 
-            // label7
+            // labelAvailTitle
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Available Balance";
+            this.labelAvailTitle.AutoSize = true;
+            this.labelAvailTitle.Location = new System.Drawing.Point(38, 25);
+            this.labelAvailTitle.Name = "labelAvailTitle";
+            this.labelAvailTitle.Size = new System.Drawing.Size(92, 13);
+            this.labelAvailTitle.TabIndex = 0;
+            this.labelAvailTitle.Text = "Available Balance";
             // 
             // Form1
             // 
@@ -363,12 +363,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelActivityError;
         private System.Windows.Forms.Button buttonApply;
-        private System.Windows.Forms.TextBox textBoxWithdrawlAmount;
+        private System.Windows.Forms.TextBox textBoxWithdrawalAmount;
         private System.Windows.Forms.TextBox textBoxDepositAmount;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelAvailableBalance;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelAvailTitle;
         private System.Windows.Forms.LinkLabel linkLabelClearInputFields;
 
     }
