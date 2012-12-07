@@ -107,17 +107,17 @@ namespace FinalProject
         #region Clear Deposit/Withdraw textboxes
         private void ClearWithDrawDepositControls()
         {
-            textBoxDepositAmount.Text = "";
-            textBoxWithdrawalAmount.Text = "";
+            textBoxDepositAmount.Clear();
+            textBoxWithdrawalAmount.Clear();
         }
         #endregion
 
         #region Clear Account Details textboxes
         private void ClearAccountDetailsControls()
         {
-            textBoxAccountNumber.Text = "";
-            textBoxAccountName.Text = "";
-            textBoxBeginningBalance.Text = "";
+            textBoxAccountNumber.Clear();
+            textBoxAccountName.Clear();
+            textBoxBeginningBalance.Clear();
             linkLabelClearInputFields.Visible = false;
         }
         #endregion
@@ -159,6 +159,7 @@ namespace FinalProject
             StringBuilder sb = new StringBuilder();
             sb.Append("CIS162AD Final Project\n\n");
             sb.AppendLine("By Robert Bartlett 2012-12-07");
+            sb.AppendLine("\n\nPlease see the 'CIS162ADFinal-ResponsetoProjectSpecifications.pdf' file for comments on the implementation.");
             MessageBox.Show(sb.ToString(), "About Bank of Bartlett", MessageBoxButtons.OK, MessageBoxIcon.Information);
         } 
         #endregion
@@ -167,7 +168,7 @@ namespace FinalProject
         #region Apply Deposit or Withdrawal click
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            labelActivityError.Text = "";
+            labelActivityError.Text = ""; ;
 
             if (textBoxDepositAmount.Text.Length > 0)
                 textBoxDepositAmount.Focus();
