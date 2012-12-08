@@ -78,6 +78,7 @@
     </Compile>
     <None Include="supportingDocs\CID162AD Final Project Test Matrix.pdf" />
     <None Include="supportingDocs\CIS162ADFinal-ResponsetoProjectSpecifications.pdf" />
+    <None Include="supportingDocs\flowchartsEtc.pdf" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

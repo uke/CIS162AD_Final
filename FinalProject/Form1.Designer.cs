@@ -136,9 +136,10 @@
             // linkLabelClearInputFields
             // 
             this.linkLabelClearInputFields.AutoSize = true;
-            this.linkLabelClearInputFields.Location = new System.Drawing.Point(113, 159);
+            this.linkLabelClearInputFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelClearInputFields.Location = new System.Drawing.Point(287, 127);
             this.linkLabelClearInputFields.Name = "linkLabelClearInputFields";
-            this.linkLabelClearInputFields.Size = new System.Drawing.Size(56, 13);
+            this.linkLabelClearInputFields.Size = new System.Drawing.Size(85, 17);
             this.linkLabelClearInputFields.TabIndex = 5;
             this.linkLabelClearInputFields.TabStop = true;
             this.linkLabelClearInputFields.Text = "clear input";
@@ -148,7 +149,7 @@
             // 
             this.labelAcctDetailsError.AutoSize = true;
             this.labelAcctDetailsError.ForeColor = System.Drawing.Color.Red;
-            this.labelAcctDetailsError.Location = new System.Drawing.Point(191, 159);
+            this.labelAcctDetailsError.Location = new System.Drawing.Point(113, 155);
             this.labelAcctDetailsError.Name = "labelAcctDetailsError";
             this.labelAcctDetailsError.Size = new System.Drawing.Size(117, 13);
             this.labelAcctDetailsError.TabIndex = 4;
@@ -239,7 +240,6 @@
             this.groupBoxActivity.Controls.Add(this.label9);
             this.groupBoxActivity.Controls.Add(this.labelAvailableBalance);
             this.groupBoxActivity.Controls.Add(this.labelAvailTitle);
-            this.groupBoxActivity.Enabled = false;
             this.groupBoxActivity.Location = new System.Drawing.Point(12, 222);
             this.groupBoxActivity.Name = "groupBoxActivity";
             this.groupBoxActivity.Size = new System.Drawing.Size(457, 156);

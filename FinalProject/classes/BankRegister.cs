@@ -17,7 +17,7 @@ namespace FinalProject.classes
     /// </summary>
     public class BankRegister
     {
-        decimal balance;
+        decimal balance; // maintains our pitiful bank balance
 
         #region public preoperties
         /// <summary>
@@ -46,8 +46,8 @@ namespace FinalProject.classes
         /// or subtracted from (debit) the balance.  So a negative debit will result 
         /// in a net gain, and a negative credit a net decrease in
         /// the balance.</remarks>
-        /// <param name="CreditAmount">An amount to be added to the curent balance. Negative numbers are valid.</param>
-        /// <param name="DebitAmount">An amount to be subtracted from the curent balance. Negative numbers are valid.</param>
+        /// <param name="CreditAmount">An amount to be added to the current balance. Negative numbers are valid.</param>
+        /// <param name="DebitAmount">An amount to be subtracted from the current balance. Negative numbers are valid.</param>
         /// <param name="NewBalance">The result of the debit/credit combination applied against the old balance.</param>
         /// <param name="ErrorMessage">Description of why the transaction failed, if an error occurred.</param>
         /// <returns>True if the transaction suceeded, else False.</returns>
@@ -90,7 +90,7 @@ namespace FinalProject.classes
                 return true;
             }
 
-            // CASE 5: outcome will be negative balance if we allowed it, but we won't
+            // CASE 5: outcome would be negative balance if we allowed it, but we won't
             ErrorMessage = "This isn't a freaking casino.  Insufficient funds";
             NewBalance = balance;
             return false;

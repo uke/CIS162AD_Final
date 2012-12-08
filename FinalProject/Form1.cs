@@ -10,6 +10,29 @@ using FinalProject.classes; // NOTE: This is where the required class lives
 
 namespace FinalProject
 {
+    /*****************************************************************************************
+     * CIS162AD Final Project  Robert Bartlett 2012-12-08
+     * 
+     * A simpleminded bank register simulation. Let user enter basic account
+     * informnation and a starting balance, then when everything passes
+     * validation, switch to an Activity mode where they can enter deposits
+     * and/or withdrawls to change the balance.  When they are done doing that
+     * they can return to the accound details mode and modify or clear the
+     * values.
+     * 
+     * Business logic implemented in a BankRegister object.
+     * 
+     * Annotated Project Specification can be found in 
+     *      supportingDocs > CIS162ADFinal-ResponsetoProjectSpecifications.pdf
+     *      
+     * Primary design wireframe can be found in
+     *      supportingDocs > wireframe.png
+     * 
+     * Test Matrix can be found in supportingDocs > CID162AD Final Project Test Matrix.pdf
+     * 
+     * Flowcharts, UML, structure diagram found in supportingDocs > flowchartsEtc.pdf
+     * 
+     * *****************************************************************************************/
     public partial class Form1 : Form
     {
         BankRegister register = new BankRegister(); // our business logic object
@@ -26,12 +49,14 @@ namespace FinalProject
             this.Text = ACCOUNT_TITLE;
            
             // make stuff invisible to start
+            groupBoxActivity.Visible = false;
             labelAcctDetailsError.Visible = false;  
             labelActivityError.Text = "";
             labelAvailTitle.Visible = false;
             #endregion
         }
 
+        #region Helper logic
         #region Parse and validate numbers
         /// <summary>
         /// Parse and validate an input string, returning a decimal if a valid number. If not
@@ -154,6 +179,7 @@ namespace FinalProject
             textBoxBeginningBalance.Clear();
             linkLabelClearInputFields.Visible = false; // don't show control if there's nothing to clear
         }
+        #endregion 
         #endregion
 
         #region Event handlers
@@ -196,7 +222,7 @@ namespace FinalProject
             StringBuilder sb = new StringBuilder();
             sb.Append("CIS162AD Final Project\n\n");
             sb.AppendLine("By Robert Bartlett 2012-12-07");
-            sb.AppendLine("\n\nPlease see the 'CIS162ADFinal-ResponsetoProjectSpecifications.pdf' file for comments on the implementation.");
+            sb.AppendLine("\n\nPlease see the 'CIS162ADFinal-ResponseToProjectSpecifications.pdf' file for comments on the implementation.");
             MessageBox.Show(sb.ToString(), "About Bank of Bartlett", MessageBoxButtons.OK, MessageBoxIcon.Information);
         } 
         #endregion
@@ -265,7 +291,7 @@ namespace FinalProject
             };
 
             // switch to the Activity group box
-            groupBoxActivity.Enabled = true;
+            groupBoxActivity.Visible = true;
             groupBoxAccountDetails.Enabled = false;
 
             SetAccoundDetailsTextBoxesReadOnly(true);
@@ -287,13 +313,15 @@ namespace FinalProject
             // "clear" anything, but takes the user to a place where they can clear if they want. This
             // is an artifact of the project requirements, which are kind of silly and assume that the
             // app is a simpleminded thing.
-            groupBoxActivity.Enabled = false;
+            groupBoxActivity.Visible = false;
             groupBoxAccountDetails.Enabled = true;
-            SetAccoundDetailsTextBoxesReadOnly(false);
-            SetClearInputLabelVisible();
-            textBoxBeginningBalance.Text = register.Balance.ToString(); // update oour beginning balance
 
-            labelBeginningBalance.Text = "Beginning Balance";
+            SetAccoundDetailsTextBoxesReadOnly(false);  // open up the accound details fields for input again
+            SetClearInputLabelVisible();                // make clear link visible
+
+            textBoxBeginningBalance.Text = register.Balance.ToString(); // update our beginning balance
+
+            labelBeginningBalance.Text = "Beginning Balance";   // change this back
 
             this.Text = ACCOUNT_TITLE; // switch form title
         }
@@ -302,6 +330,9 @@ namespace FinalProject
         #region Account Details textboxes  Key Up
         private void AccountDetailsTextBoxes_KeyUp(object sender, KeyEventArgs e)
         {
+            // NOTE: all account detail textboxes are wired to this keyup event, to 
+            // reduce duplication of code.
+
             // Validate content of text boxes and drive the setting of the Continue button's visibilty
             decimal startingBalance;
 
